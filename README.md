@@ -1,5 +1,7 @@
 # LiveView
 
+This app in online in this url: [app](https://trainingliveview.fly.dev/)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`

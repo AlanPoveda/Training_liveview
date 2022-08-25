@@ -9,7 +9,7 @@ defmodule LiveViewWeb.LiveLight do
 
 
   def render(assigns) do
-    ~L"""
+    ~H"""
     <h1> Renderizar a luz </h1>
 
     <div>
@@ -20,6 +20,7 @@ defmodule LiveViewWeb.LiveLight do
       <button phx-click="up"> + </button>
       <button phx-click="down"> - </button>
       <button phx-click="off"> Down  </button>
+      <button phx-click="random"> Random </button>
 
     """
   end
@@ -41,6 +42,11 @@ defmodule LiveViewWeb.LiveLight do
 
   def handle_event("down", _, socket) do
     socket = update(socket, :brig, &(&1 - 10))
+    {:noreply, socket}
+  end
+
+  def handle_event("random", _, socket) do
+    socket = update(socket, :brig, &(&1 = :rand.uniform(100)))
     {:noreply, socket}
   end
 
