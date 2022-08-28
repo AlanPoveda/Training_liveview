@@ -6,6 +6,7 @@ defmodule LiveViewWeb.LiveSales do
     if connected?(socket) do
       :timer.send_interval(1000, self(), :tick)
     end
+
     socket = socket_events(socket)
     {:ok, socket}
   end
@@ -13,8 +14,8 @@ defmodule LiveViewWeb.LiveSales do
   def render(assigns) do
     ~L"""
       <h1>Sales Dashboard</h1>
-<div id="dashboard">
-  <div class="stats">
+    <div id="dashboard">
+    <div class="stats">
     <div class="stat">
       <span class="value">
         <%= @new_orders %>
@@ -39,14 +40,13 @@ defmodule LiveViewWeb.LiveSales do
         Satisfaction
       </span>
     </div>
-  </div>
-  <button phx-click="refresh">
+    </div>
+    <button phx-click="refresh">
     Refresh
-  </button>
-</div>
+    </button>
+    </div>
     """
   end
-
 
   def handle_event("refresh", _, socket) do
     socket = socket_events(socket)
@@ -66,5 +66,4 @@ defmodule LiveViewWeb.LiveSales do
       satisfaction: Sales.satisfaction()
     )
   end
-
 end
