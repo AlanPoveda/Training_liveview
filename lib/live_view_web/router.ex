@@ -21,6 +21,7 @@ defmodule LiveViewWeb.Router do
 
     live "/light", LiveLight
     live "/sales", LiveSales
+    live "/stores", SearchLive
   end
 
   # Other scopes may use custom stacks.
